@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -28,9 +30,13 @@ public class MainController {
         log.info("프론트에서 받은 nx: {}", nx);
         log.info("프론트에서 받은 ny: {}", ny);
 
+        //어제 날짜를 baseDate로 설정
+        LocalDate yesterday = LocalDate.now().minusDays(1);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        String baseDate = yesterday.format(formatter);
+
         // 하드코딩
-        String baseDate = "20250624";
-        String baseTime = "1700";
+        String baseTime = "2300";
 
         log.info("기상청 응답 받은거: {}", publicDataService.getVilageForecast(baseDate, baseTime, nx, ny));
 
