@@ -16,7 +16,9 @@ import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins =
+        {"https://mogisireo.vercel.app",
+        "http://localhost:5173"})
 @RestController
 @RequestMapping("/api")
 public class MainController {
