@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { convertGRID } from '../utils/geoUtil';
 import { calculateMosquitoIndex } from '../utils/calculateMosquitoIndex';
 import type { ForecastItem, MosquitoIndex } from '../utils/calculateMosquitoIndex';
@@ -20,7 +20,7 @@ function MainPage() {
         console.log('위도:', latitude, '경도:', longitude);
         console.log('nx:', nx, 'ny:', ny);
 
-        fetch('http://localhost:8080/api/location', {
+        fetch('https://mogisireo.duckdns.org/api/location', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
