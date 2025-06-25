@@ -1,5 +1,6 @@
 package mogi.sireo.controller;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import mogi.sireo.service.PublicDataService;
@@ -11,6 +12,7 @@ import reactor.core.publisher.Mono;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -23,7 +25,7 @@ public class MainController {
     private final PublicDataService publicDataService;
 
     @PostMapping("/location")
-    public Mono<ResponseEntity<String>> receiveLocation(@RequestBody Map<String, Integer> body) {
+    public Mono<ResponseEntity<List<JsonNode>>> receiveLocation(@RequestBody Map<String, Integer> body) {
         int nx = body.get("nx");
         int ny = body.get("ny");
 
@@ -38,9 +40,9 @@ public class MainController {
         // 하드코딩
         String baseTime = "2300";
 
-        log.info("기상청 응답 받은거: {}", publicDataService.getVilageForecast(baseDate, baseTime, nx, ny));
+        log.info("기상청 응답 받은거: {}", publicDataService.getVillageForecast(baseDate, baseTime, nx, ny));
 
-        return publicDataService.getVilageForecast(baseDate, baseTime, nx, ny)
+        return publicDataService.getFilteredVillageForecast(baseDate, baseTime, nx, ny)
                 .map(jsonString -> ResponseEntity.ok()
                         .header("Content-Type", "application/json") // JSON 타입 명시
                         .body(jsonString))
