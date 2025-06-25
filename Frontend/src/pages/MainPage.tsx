@@ -20,7 +20,7 @@ function MainPage() {
         console.log('위도:', latitude, '경도:', longitude);
         console.log('nx:', nx, 'ny:', ny);
 
-        fetch('http://localhost:8080/api/location', {
+        fetch('https://mogisireo.duckdns.org/api/location', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
