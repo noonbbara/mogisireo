@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { convertGRID } from '../utils/geoUtil';
 import { calculateMosquitoIndex } from '../utils/calculateMosquitoIndex';
 import type { ForecastItem, MosquitoIndex } from '../utils/calculateMosquitoIndex';
