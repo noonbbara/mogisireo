@@ -1,4 +1,5 @@
 # mogisireo
 
 ### 스크린샷
-![image.png](attachment:e37364b9-f9bd-4ee1-b08b-617ad3c2c987:image.png)
+![image](https://github.com/user-attachments/assets/1d1c5572-0b1f-4160-8f90-ca77fcbda9c3)
+
