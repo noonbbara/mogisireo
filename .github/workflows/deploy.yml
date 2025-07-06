@@ -24,9 +24,11 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./backend
+          file: ./backend/Dockerfile
           push: true
           tags: ysys1226/mogi-docker:latest
+
 
       - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v1.0.0
