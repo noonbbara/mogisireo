@@ -17,9 +17,14 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Grant execute permission for gradlew
+        working-directory: ./Backend
+        run: chmod +x ./gradlew
+
       - name: Build with Gradle
         working-directory: ./Backend
         run: ./gradlew clean build
+
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
