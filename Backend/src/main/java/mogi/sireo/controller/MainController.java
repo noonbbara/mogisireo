@@ -51,8 +51,4 @@ public class MainController {
                 .defaultIfEmpty(ResponseEntity.noContent().build());
     }
 
-    @GetMapping("/cicdtest")
-    public String cicdtest() {
-        return "cicdtest";
-    }
 }
