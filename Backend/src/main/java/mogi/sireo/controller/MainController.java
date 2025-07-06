@@ -50,4 +50,9 @@ public class MainController {
                         .body(jsonString))
                 .defaultIfEmpty(ResponseEntity.noContent().build());
     }
+
+    @GetMapping("/cicdtest")
+    public String cicdtest() {
+        return "cicdtest";
+    }
 }
