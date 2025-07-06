@@ -18,6 +18,7 @@ jobs:
           java-version: '17'
 
       - name: Build with Gradle
+        working-directory: ./Backend
         run: ./gradlew clean build
 
       - name: Set up Docker Buildx
@@ -36,7 +37,6 @@ jobs:
           file: ./Backend/Dockerfile
           push: true
           tags: ysys1226/mogi-docker:latest
-
 
       - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v1.0.0
