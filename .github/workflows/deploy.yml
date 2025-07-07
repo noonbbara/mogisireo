@@ -53,4 +53,4 @@ jobs:
             docker pull ysys1226/mogi-docker:latest
             docker stop mogi || true
             docker rm mogi || true
-            docker run -d --name mogi -p 8080:8080 -e WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }} ysys1226/mogi-docker:latest
+            docker run -d --name mogi -p 8088:8088 -e WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }} ysys1226/mogi-docker:latest
